@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>View Data</title>
+    </head>
+
+    <body>
+        {{> welcome}}
+        <table border='1'>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Occupation</th>
+                <th>Company</th>
+            </tr>
+           
+            {{#each data}}
+            <tr>
+                 {{!-- any variables (properties) referenced within the #each block will automatically use the current iteration as the working object. --}}
+                 {{!-- so i don't have to write data.name insead i can directly refer to name --}}
+                    <td>{{name}}</td>
+                    <td>{{age}}</td>
+                    <td>{{occupation}}</td>
+                    <td>{{company}}</td>
+            </tr>
+                    {{else}}
+                        <tr>
+                        <td colspan="4">No Data Available</td>
+                    </tr>
+                    {{/each}}
+            
+        </table>
+    </body>
+</html>
+{{!-- 
+ {{!-- <tr>
+                {{!-- Conditionally render a block of HTMl --}}
+                {{!-- cannot use comparison operator --}}
+                {{#if data.display}}
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.occupation}}</td>
+                <td>{{data.company}}</td>
+                {{else}}
+                <td colspan="4">Cannot show the data for {{data.name}}</td>
+                {{/if}}
+                {{!-- We have 'unless' helper which is same as 'if' but it only render an html block when it is false --}}
+                    </tr> --}}

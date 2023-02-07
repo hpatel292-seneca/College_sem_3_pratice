@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>View Data</title>
+    </head>
+
+    <body>
+        {{> welcome}}
+        <table border='1'>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Occupation</th>
+                <th>Company</th>
+            </tr>
+           
+            {{#each data}}
+            <tr>
+                 {{!-- any variables (properties) referenced within the #each block will automatically use the current iteration as the working object. --}}
+                 {{!-- so i don't have to write data.name insead i can directly refer to name --}}
+                    <td>{{name}}</td>
+                    <td>{{age}}</td>
+                    <td>{{occupation}}</td>
+                    <td>{{company}}</td>
+            </tr>
+                    {{else}}
+                        <tr>
+                        <td colspan="4">No Data Available</td>
+                    </tr>
+                    {{/each}}
+            
+        </table>
+    </body>
+</html>
+ {{!-- if you wish to access a specific element, you can use the syntax data.[1].name - which in this case, will output “Sarah” --}}
+ {{!-- The “each” helper also exposes an “@index” variable that allows us to reference the current iteration index (ie, 0, 1, 2, 3, etc.) --}}
