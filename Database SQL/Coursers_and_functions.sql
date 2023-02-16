@@ -1,0 +1,15 @@
+-- Coursers
+--> it is use to process multiple lines of code.
+--> a cursor is a pointer to an context area which contain the result of processed SQL statements.
+--> TWO types of cursors
+----> - Implicit coursors
+---> - Explicit cursors
+
+-- IMPLICIT COURSORS
+--> this coursors are automatically created while a statment such as INSERT, UPDATE, DELELTE or SELECT are executed.
+--> It is used to determine that if any row have been affected as a result of the execution of SQL statements
+-- i.e
+---> SQL%FOUND -> TRUE -> if atlease one row is affected by execution of DML statement
+---> SQL%NOTFOUND -> TRUE -> if no row is affected by execution of DML statement
+---> SQL%ROWCOUNT -> it returns the number of rows affected by execution of DML statement.
+---> SQL%ISOPEN -> always return false as SQL always close an closure after execution of SQL statement.
