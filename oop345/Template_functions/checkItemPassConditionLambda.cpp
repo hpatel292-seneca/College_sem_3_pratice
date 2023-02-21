@@ -27,5 +27,6 @@ int check(T arr[], int size, bool (*func)(T, T)){
 int main(){
     auto lambFunc = [](int a, int b)->bool {return a > b;};
     int a[] = {1,2,3,4,5,6,7,8,9,0};
+    // has to mentio template type as lambda exp did not know the template type.
     cout << check<int>(a, 10, lambFunc);
 }
