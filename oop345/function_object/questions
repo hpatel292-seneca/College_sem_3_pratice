@@ -1,0 +1,19 @@
+Create a functor (a function object) that validates a password. At instantiation, the function object should receive from the client
+
+a set of characters -> the valid password must contain at least one (i.e., special characters like #!@$%^&*());
+a set of characters that should not be in the password (i.e., space, new line, etc)
+Through modifiers, the client should be able to specify if the password must contain at least:
+
+one lower case letter (by default, yes)
+one upper case letter (by default, yes)
+a number (be default, no)
+a minimum number of characters (by default, no; if yes, then the client must specify this minimum).
+The functor should return true if a password is valid; false otherwise;
+
+Create a functor (a function object) that removes the spaces from the beginning/end of any string. An instance should be able to keep track of how many strings were cleared and how many spaces were removed; and provide these values to a client through a query.
+
+Create a functor (a function object) that checks if a string is a valid name. A valid name is a string that contains exactly 2 words, each one starting with an upper case letter. Each instance should remember the last 10 valid strings and the last 10 invalid strings; provide a query to print these strings to the screen.
+
+Create a functor (a function object) that removes duplicates from an array of numbers. At instantiation, the client should be able to specify a numeric value; any two numbers whose difference is smaller than this value are considered the same. The functor will write into a log file the arrays received as parameter, which numbers were found identical and which ones were removed. The functor will count how many numbers were removed and provide a query so the clients can retrieve this counter.
+
+Create a functor (a function object) that checks if a username/password combination is valid. The functor will look into a file (a simulated database) searching for the username/password combination: if it’s found, then the function object should return true, false otherwise. Upon instantiation, the client should specify a filename; if the file doesn’t exist, the constructor should throw an exception.
