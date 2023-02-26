@@ -1,0 +1,74 @@
+<!--
+*************************************************************************************
+*  WEB322 - Test #3 (Winter 2023)
+*  I declare that this solution is my own work in accordance with the Seneca Academic
+*  Policy. No part of this test has been copied manually or electronically from
+*  any other source (including web sites) or distributed to other students.
+*  
+*  For the questions contained in this file only, you may refer to the web322.ca
+*  website and code examples and the lecture slides (from this class).
+*  Be careful not to spend too much time looking at these references!
+*
+*  Name: Harshil Patel
+*  Student Email:  hpatel292@myseneca.ca
+*  Course/Section: web322/NCC
+* 
+*************************************************************************************
+// *** PART B - 8 Marks ***
+// Modify the HandleBars view called "home.hbs".  In the view file you
+// will design a table to display a list of customers.  The view file
+// has already been started but you must fill in the blanks.
+// An example of the view is available in the file "home-page-example.png"
+// located in the root folder.
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEST #3 - Company List</title>
+</head>
+
+<body>
+
+    <h1>Test #3 - Company List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Customer ID</td>
+                <td>Company Name</td>
+                <td>Active?</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!--
+                *** 8 Marks ***
+                For each object in the array populate the rows and columns in the html table.
+                Show the customerId, companyName, and the text "Active" (when isActive value is true) 
+				otherwise show "Inactive". Ensure each value is represented in the correct table column.
+
+                If there is no data, show the message "No Customers" spanning all three columns.
+            -->
+            {{#each data}}
+            <tr>
+                <td>{{customerId}}</td>
+                <td>{{companyName}}</td>
+                {{# if isActive}}
+                    <td>Active</td>
+                {{else}}
+                    <td>Inactive</td>   
+                {{/if}}     
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="3">No Customers</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</body>
+
+</html>
