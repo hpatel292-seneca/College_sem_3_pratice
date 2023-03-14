@@ -15,7 +15,8 @@
 
 #include<iostream>
 #include<functional>
-
+#include<iostream>
+using namespace std;
 namespace sdds{
     template<typename T>
     class Collection{
@@ -36,7 +37,7 @@ namespace sdds{
         Collection<T>& operator=(Collection<T>&& src);
 
         // add an it
-        void operator++(T& item);
+        void add(T& item);
 
         // retrieve the item at a specified index
         const T& operator[](const int& index) const;
@@ -49,11 +50,22 @@ namespace sdds{
 
         // remove all items that match a certain condition (a lambda expression received from the client as a parameter)
         void remove_if(std::function<bool(T&)> test);
+
+        // display items
+        void display();
     };
+    template<typename T>
+    void Collection<T>::display(){
+        for (size_t i = 0; i < m_size; i++)
+        {
+            cout << m_items[i] << endl;
+        }
+        
+    }
 
      template<typename T>
      Collection<T>::Collection(){
-         m_item = nullptr;
+         m_items = nullptr;
          m_size = 0;
      }
 
@@ -77,10 +89,10 @@ namespace sdds{
             // step-4 deep copy
             if (m_size > 0)
             {
-                m_item = new T[m_size];
+                m_items = new T[m_size];
                 for (size_t i = 0; i < m_size; i++)
                 {
-                    m_item[i] = src.m_items[i];
+                    m_items[i] = src.m_items[i];
                 }
             }
         }
@@ -118,21 +130,23 @@ namespace sdds{
     }
 
     template<typename T>
-    void Collection<T>::operator++(T& item){
-        if (size > 0)
+    void Collection<T>::add(T& item){
+        if (m_size > 0)
         {
             T* temp = m_items;
             m_items = new T[m_size+1];
             for (size_t i = 0; i < m_size; i++)
             {
-                m_items[i] = m_temp[i];
+                m_items[i] = temp[i];
             }
             m_items[m_size] = item;
             m_size++;
+            delete[] temp;
         }
         else{
             m_items = new T[1];
             m_items[0] = item;
+            m_size = 1;
         }
         
     }

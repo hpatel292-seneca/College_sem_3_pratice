@@ -18,6 +18,10 @@ bool checkItemExistInArray(T arr[], int size, T item){
     }
     return retValue;
 }
+template<>
+bool checkItemExistInArray(const char* arr[], int size, const char* item){
+
+}
 
 int main(){
 

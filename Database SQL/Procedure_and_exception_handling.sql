@@ -27,7 +27,7 @@ END;
 DECLARE
     my_except EXCEPTION;
 BEGIN
-    IF 10 = 10 THEN
+    IF 10 = 11 THEN
         RAISE my_except;
     END IF;
 EXCEPTION
